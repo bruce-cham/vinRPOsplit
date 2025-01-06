@@ -6,8 +6,20 @@
 <style>
     body {
         font-family: Arial, sans-serif;
+					  
+								
+							
+					  
+				  
+								  
     }
     .container {
+						  
+					  
+						   
+												
+				   
+						 
         display: flex;
         justify-content: space-around;
         align-items: flex-start;
@@ -18,19 +30,38 @@
         height: 300px;
         padding: 10px;
         font-size: 16px;
+							
+							   
+						   
+					 
     }
     button {
         margin-top: 20px;
         padding: 10px 20px;
         font-size: 16px;
+					 
+						   
+						
+									
+	 
+				  
+								  
+					 
     }
+					   
+					  
+									   
+	 
 </style>
 </head>
 <body>
 
 <div class="container">
     <textarea id="inputText" placeholder="在这里粘贴文本..."></textarea>
-    <button onclick="splitText()">分拆</button>
+    <div class="button-container">
+        <button onclick="splitText()">分拆</button>
+        <button onclick="copyToClipboard()">复制结果</button>
+    </div>
     <textarea id="outputText" placeholder="分拆后的结果会显示在这里..." readonly></textarea>
 </div>
 
@@ -64,6 +95,15 @@ function splitText() {
 
     // 将分拆后的结果显示在输出文本框中
     document.getElementById('outputText').value = resultText;
+}
+function copyToClipboard() {
+    const outputText = document.getElementById('outputText');
+    outputText.select(); // 选择文本框中的所有文本
+    outputText.setSelectionRange(0, 99999); // 对于移动设备
+    document.execCommand('copy'); // 复制选中的文本到剪贴板
+
+    // 可选：提供反馈给用户
+    alert('分拆结果已复制到剪贴板！');
 }
 </script>
 
